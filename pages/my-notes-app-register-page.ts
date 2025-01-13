@@ -7,20 +7,26 @@ export class NotesRegisterPage{
     registerPageTitle: Locator;
     //Button Locators
     completeRegistrationButton: Locator;
+    loginButton: Locator;
     //Field Locators
     emailField: Locator;
     nameField:Locator;
     passwordField: Locator; 
     confirmPasswordField: Locator; //Needs the exact same input as the line above
-
+    //Toasts
+    toastMessage: Locator;
+    toastMessages: string[]=['User account created successfully']
     constructor(page: Page){
         this.page = page;
         this.registerPageTitle = page.getByRole('heading', { name: 'Register' });
         //In the order they are used
         this.emailField = page.locator('[data-testid="register-email"]');
         this.nameField = page.locator('[data-testid="register-name"]');
-        this.passwordField = page.locator('input[data-testid="register-password"][type="password"]');        this.confirmPasswordField = page.locator('[data-testid="register-confirm-password"]');
+        this.passwordField = page.locator('input[data-testid="register-password"][type="password"]');        
+        this.confirmPasswordField = page.locator('[data-testid="register-confirm-password"]');
         this.completeRegistrationButton = page.locator('[data-testid="register-submit"]');
+        this.loginButton = page.locator('[data-testid="login-view"]');
+        this.toastMessage = page.locator('.alert.alert-success');
     }
     async enterEmail(userDetails: UserDetails): Promise<void>{
         await this.emailField.fill(userDetails.email);
@@ -39,5 +45,8 @@ export class NotesRegisterPage{
     }
     async completeRegistration(): Promise<void>{
         await this.completeRegistrationButton.click();    
+    }
+    async loginFirstTime(): Promise<void>{
+        await this.loginButton.click();
     }
 }
