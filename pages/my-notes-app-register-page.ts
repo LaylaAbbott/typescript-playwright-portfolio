@@ -15,7 +15,7 @@ export class NotesRegisterPage{
     confirmPasswordField: Locator; //Needs the exact same input as the line above
     //Toasts
     toastMessage: Locator;
-    toastMessages: string[]=['User account created successfully']
+    toastMessages: string[]=['User account created successfullyClick here to Log In']
     constructor(page: Page){
         this.page = page;
         this.registerPageTitle = page.getByRole('heading', { name: 'Register' });
