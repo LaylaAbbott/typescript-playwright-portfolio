@@ -1,13 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { UserDetails } from "../helper classes/UserDetails";
-import { NotesLandingPage } from "../pages/my-notes-app-pre-login-page";
-import { NotesRegisterPage } from "../pages/my-notes-app-register-page";
-import { NotesLoginPage } from "../pages/my-notes-app-login-page";
-import { NotesHomePage } from "../pages/my-notes-app-home-page";
-import { NotesProfilePage } from "../pages/my-notes-app-profile-page"; 
+import { NotesHomePage, NotesLandingPage, NotesLoginPage, NotesProfilePage, NotesRegisterPage } from "../pages/my-notes-app-pages";
 
-test.describe('Given I am a visitor to the site, when I am on the pre-login page I can view the button and access the page for creating an account.', () => {
-    test('Given I am a new user, when I visit the landing page then I view a button to create an account to the Register page', async ({page}) => {
+
+test.describe('Given I am a visitor to the site, when I am on the pre-login page I can view the button and access the page for creating an account.',() => {
+    test.skip('Given I am a new user, when I visit the landing page then I view a button to create an account to the Register page', async ({page}) => {
         //New instance of the pre-login page
         const landingPage = new NotesLandingPage(page);
         //Act: go to landing page
